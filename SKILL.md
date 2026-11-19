@@ -3,6 +3,7 @@ name: trade-plan-auditor
 description: Audit a crypto trade plan before entry — check the stop, the invalidation, the position size, the risk against the cap, and the risk/reward, and return GO, FIX, or NO-GO with the exact gaps to fix.
 summary: Audit a crypto trade plan before entry — stop, invalidation, risk, size, and reward, with a GO, FIX, or NO-GO verdict.
 version: 1.0.0
+docs_url: https://github.com/mrsaepudin40/trade-plan-auditor
 tags:
   - crypto
   - trading
