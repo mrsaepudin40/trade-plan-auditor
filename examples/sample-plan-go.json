@@ -1,0 +1,1 @@
+{"account_usd":1000,"analyst_score":82,"entry":1.0,"honeypot_check":"pass","invalidation":"Daily close below 0.90 invalidates the breakout.","note":"Invented sample data, not real market data.","position_usd":80,"side":"long","slippage_pct":1,"stop":0.9,"symbol":"SAMPLE","target":1.2,"thesis":"Breakout above 1.00 with rising volume; momentum continuation.","trade_type":"onchain"}

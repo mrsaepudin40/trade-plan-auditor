@@ -1,0 +1,94 @@
+{
+  "symbol": "SAMPLE",
+  "side": "long",
+  "trade_type": "onchain",
+  "verdict": "FIX",
+  "checks": [
+    {
+      "id": "stop",
+      "name": "Stop is set",
+      "status": "PASS",
+      "severity": "hard",
+      "detail": "Stop 1.8 is 10.0% away from entry 2.0."
+    },
+    {
+      "id": "invalidation",
+      "name": "Invalidation is written",
+      "status": "FAIL",
+      "severity": "soft",
+      "detail": "An invalidation is written but it names no level: 'If momentum fades.'. A vague invalidation cannot be checked against the market, so rewrite it with a price or an exact condition."
+    },
+    {
+      "id": "risk_cap",
+      "name": "Risk is within the cap",
+      "status": "PASS",
+      "severity": "hard",
+      "detail": "Risk $8.00 (0.80% of the account) is within the allowed $10.00."
+    },
+    {
+      "id": "risk_reward",
+      "name": "Risk/reward is at least the minimum",
+      "status": "FAIL",
+      "severity": "soft",
+      "detail": "Risk/reward is 1.20, below the minimum 1.5. Reward $9.60 against risk $8.00. Move the target further or the stop closer."
+    },
+    {
+      "id": "position_size",
+      "name": "Position is within the size limit",
+      "status": "PASS",
+      "severity": "soft",
+      "detail": "Position $80.00 is 8.00% of the account, within the 8.0% limit."
+    },
+    {
+      "id": "thesis",
+      "name": "Thesis is written",
+      "status": "PASS",
+      "severity": "soft",
+      "detail": "Thesis is written: 'Support held at 2.00 twice; bounce expected.'."
+    },
+    {
+      "id": "honeypot",
+      "name": "Honeypot check passed",
+      "status": "PASS",
+      "severity": "soft",
+      "detail": "Honeypot check passed."
+    },
+    {
+      "id": "slippage",
+      "name": "Slippage is within the limit",
+      "status": "FAIL",
+      "severity": "soft",
+      "detail": "Slippage 5% is above the 3.0% limit. High slippage eats the edge on entry."
+    },
+    {
+      "id": "analyst_score",
+      "name": "Analyst score passes the bar",
+      "status": "FAIL",
+      "severity": "soft",
+      "detail": "Analyst score 65 is below the pass bar 70.0. The setup does not clear the bar."
+    }
+  ],
+  "computed": {
+    "account_usd": 1000.0,
+    "entry": 2.0,
+    "stop": 1.8,
+    "target": 2.24,
+    "position_usd": 80.0,
+    "stop_distance_pct": 9.999999999999998,
+    "risk_usd": 8.0,
+    "risk_pct": 0.8,
+    "allowed_risk_usd": 10.0,
+    "reward_usd": 9.6,
+    "risk_reward": 1.2,
+    "max_position_usd": 100.0,
+    "position_pct": 8.0
+  },
+  "hard_fails": [],
+  "gaps": [
+    "invalidation",
+    "risk_reward",
+    "slippage",
+    "analyst_score"
+  ],
+  "next_action": "Fix the listed gaps, then run the audit again. Do not enter until the verdict is GO."
+}

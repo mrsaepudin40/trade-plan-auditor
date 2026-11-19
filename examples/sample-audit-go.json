@@ -1,0 +1,89 @@
+{
+  "symbol": "SAMPLE",
+  "side": "long",
+  "trade_type": "onchain",
+  "verdict": "GO",
+  "checks": [
+    {
+      "id": "stop",
+      "name": "Stop is set",
+      "status": "PASS",
+      "severity": "hard",
+      "detail": "Stop 0.9 is 10.0% away from entry 1.0."
+    },
+    {
+      "id": "invalidation",
+      "name": "Invalidation is written",
+      "status": "PASS",
+      "severity": "hard",
+      "detail": "Invalidation is written: 'Daily close below 0.90 invalidates the breakout.'."
+    },
+    {
+      "id": "risk_cap",
+      "name": "Risk is within the cap",
+      "status": "PASS",
+      "severity": "hard",
+      "detail": "Risk $8.00 (0.80% of the account) is within the allowed $10.00."
+    },
+    {
+      "id": "risk_reward",
+      "name": "Risk/reward is at least the minimum",
+      "status": "PASS",
+      "severity": "soft",
+      "detail": "Risk/reward is 2.00 (reward $16.00 against risk $8.00)."
+    },
+    {
+      "id": "position_size",
+      "name": "Position is within the size limit",
+      "status": "PASS",
+      "severity": "soft",
+      "detail": "Position $80.00 is 8.00% of the account, within the 8.0% limit."
+    },
+    {
+      "id": "thesis",
+      "name": "Thesis is written",
+      "status": "PASS",
+      "severity": "soft",
+      "detail": "Thesis is written: 'Breakout above 1.00 with rising volume; momentum continuation.'."
+    },
+    {
+      "id": "honeypot",
+      "name": "Honeypot check passed",
+      "status": "PASS",
+      "severity": "soft",
+      "detail": "Honeypot check passed."
+    },
+    {
+      "id": "slippage",
+      "name": "Slippage is within the limit",
+      "status": "PASS",
+      "severity": "soft",
+      "detail": "Slippage 1% is within the 3.0% limit."
+    },
+    {
+      "id": "analyst_score",
+      "name": "Analyst score passes the bar",
+      "status": "PASS",
+      "severity": "soft",
+      "detail": "Analyst score 82 clears the pass bar 70.0."
+    }
+  ],
+  "computed": {
+    "account_usd": 1000.0,
+    "entry": 1.0,
+    "stop": 0.9,
+    "target": 1.2,
+    "position_usd": 80.0,
+    "stop_distance_pct": 9.999999999999998,
+    "risk_usd": 8.0,
+    "risk_pct": 0.8,
+    "allowed_risk_usd": 10.0,
+    "reward_usd": 16.0,
+    "risk_reward": 2.0,
+    "max_position_usd": 100.0,
+    "position_pct": 8.0
+  },
+  "hard_fails": [],
+  "gaps": [],
+  "next_action": "Enter on the plan's own terms. The audit checks the plan, not the market \u2014 an audited plan can still lose."
+}

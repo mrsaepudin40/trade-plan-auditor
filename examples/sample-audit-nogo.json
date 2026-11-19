@@ -1,0 +1,97 @@
+{
+  "symbol": "SAMPLE",
+  "side": "long",
+  "trade_type": "onchain",
+  "verdict": "NO-GO",
+  "checks": [
+    {
+      "id": "stop",
+      "name": "Stop is set",
+      "status": "FAIL",
+      "severity": "hard",
+      "detail": "No stop price in the plan. Without a stop the loss is uncapped: the whole position is at risk."
+    },
+    {
+      "id": "invalidation",
+      "name": "Invalidation is written",
+      "status": "FAIL",
+      "severity": "hard",
+      "detail": "No invalidation is written. A plan with no stated condition for being wrong cannot be exited on a rule."
+    },
+    {
+      "id": "risk_cap",
+      "name": "Risk is within the cap",
+      "status": "FAIL",
+      "severity": "hard",
+      "detail": "Risk $100.00 (10.00% of the account) is above the allowed $10.00 (min of $10.00 and 1.0% of the account). Cut the position or move the stop closer."
+    },
+    {
+      "id": "risk_reward",
+      "name": "Risk/reward is at least the minimum",
+      "status": "FAIL",
+      "severity": "soft",
+      "detail": "Risk/reward is 0.50, below the minimum 1.5. Reward $50.00 against risk $100.00. Move the target further or the stop closer."
+    },
+    {
+      "id": "position_size",
+      "name": "Position is within the size limit",
+      "status": "FAIL",
+      "severity": "soft",
+      "detail": "Position $100.00 is 10.00% of the account, above the 8.0% limit. A single position this large concentrates the account."
+    },
+    {
+      "id": "thesis",
+      "name": "Thesis is written",
+      "status": "PASS",
+      "severity": "soft",
+      "detail": "Thesis is written: 'It will go up.'."
+    },
+    {
+      "id": "honeypot",
+      "name": "Honeypot check passed",
+      "status": "FAIL",
+      "severity": "soft",
+      "detail": "The honeypot check did not pass (value: 'not-checked'). Do not enter an on-chain trade that has not passed the honeypot gate."
+    },
+    {
+      "id": "slippage",
+      "name": "Slippage is within the limit",
+      "status": "PASS",
+      "severity": "soft",
+      "detail": "Slippage 3% is within the 3.0% limit."
+    },
+    {
+      "id": "analyst_score",
+      "name": "Analyst score passes the bar",
+      "status": "SKIPPED",
+      "severity": "soft",
+      "detail": "No analyst score is given, so no score bar applies."
+    }
+  ],
+  "computed": {
+    "account_usd": 1000.0,
+    "entry": 1.0,
+    "stop": null,
+    "target": 1.5,
+    "position_usd": 100.0,
+    "stop_distance_pct": null,
+    "risk_usd": 100.0,
+    "risk_pct": 10.0,
+    "allowed_risk_usd": 10.0,
+    "reward_usd": 50.0,
+    "risk_reward": 0.5,
+    "max_position_usd": null,
+    "position_pct": 10.0
+  },
+  "hard_fails": [
+    "stop",
+    "invalidation",
+    "risk_cap"
+  ],
+  "gaps": [
+    "risk_reward",
+    "position_size",
+    "honeypot"
+  ],
+  "next_action": "Do not enter. A hard fail means the plan has no usable stop, risks more than the cap, or states no invalidation. Rewrite the plan."
+}
